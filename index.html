@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Deployment Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 10V14M8 8V16M12 6V18M16 10V14M20 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>Docker Demo</span>
+            </div>
+            <nav>
+                <a href="#nedir">Nedir?</a>
+                <a href="#avantajlar">Avantajlar</a>
+                <a href="#komutlar">Komutlar</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="badge">Web Programlama Dersi</div>
+                    <h1>Docker ile Web Deployment</h1>
+                    <p class="subtitle">Konteyner teknolojisi ile uygulamalarınızı her ortamda sorunsuz çalıştırın</p>
+                    <div class="cta-buttons">
+                        <a href="#komutlar" class="btn btn-primary">Komutları Gör</a>
+                        <a href="#nedir" class="btn btn-secondary">Daha Fazla Bilgi</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="docker-whale">
+                        <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Docker Whale -->
+                            <path d="M180 60c-5 0-10 2-13 6-2-15-15-26-30-26-4 0-8 1-12 3-4-12-15-20-28-20-16 0-29 11-32 26-3-1-6-2-10-2-16 0-29 13-29 29s13 29 29 29h115c13 0 24-11 24-24 0-11-8-21-18-23z" fill="#2496ED"/>
+                            <!-- Containers on back -->
+                            <rect x="35" y="25" width="12" height="12" rx="2" fill="#2496ED"/>
+                            <rect x="50" y="20" width="12" height="12" rx="2" fill="#2496ED"/>
+                            <rect x="65" y="25" width="12" height="12" rx="2" fill="#2496ED"/>
+                            <rect x="50" y="35" width="12" height="12" rx="2" fill="#2496ED"/>
+                        </svg>
+                    </div>
+                    <div class="floating-containers">
+                        <div class="container-box">Nginx</div>
+                        <div class="container-box">Node.js</div>
+                        <div class="container-box">Python</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="nedir" class="section">
+                <h2>Docker Nedir?</h2>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-icon">📦</div>
+                        <h3>Konteyner</h3>
+                        <p>Uygulama ve bağımlılıklarını izole bir ortamda paketler</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🚀</div>
+                        <h3>Hızlı</h3>
+                        <p>Saniyeler içinde başlatılabilen hafif sanal ortamlar</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🔄</div>
+                        <h3>Taşınabilir</h3>
+                        <p>Her ortamda aynı şekilde çalışır: "Benim bilgisayarımda çalışıyordu" sorunu ortadan kalkar</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="avantajlar" class="section">
+                <h2>Neden Docker?</h2>
+                <div class="features">
+                    <div class="feature">
+                        <span class="check">✓</span>
+                        <span>İzolasyon - Uygulamalar birbirinden bağımsız çalışır</span>
+                    </div>
+                    <div class="feature">
+                        <span class="check">✓</span>
+                        <span>Ölçeklenebilirlik - Kolayca çoğaltılabilir</span>
+                    </div>
+                    <div class="feature">
+                        <span class="check">✓</span>
+                        <span>Versiyon Kontrolü - Image'ler sürümlenebilir</span>
+                    </div>
+                    <div class="feature">
+                        <span class="check">✓</span>
+                        <span>Kaynak Verimliliği - Daha az kaynak kullanır</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="komutlar" class="section">
+                <h2>Temel Docker Komutları</h2>
+                <div class="commands">
+                    <div class="command-item">
+                        <code>docker build -t myapp .</code>
+                        <span>Dockerfile'dan image oluştur</span>
+                    </div>
+                    <div class="command-item">
+                        <code>docker run -p 80:80 myapp</code>
+                        <span>Konteyner başlat ve port yönlendir</span>
+                    </div>
+                    <div class="command-item">
+                        <code>docker ps</code>
+                        <span>Çalışan konteynerleri listele</span>
+                    </div>
+                    <div class="command-item">
+                        <code>docker stop container_id</code>
+                        <span>Konteyneri durdur</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section dockerfile-section">
+                <h2>Örnek Dockerfile</h2>
+                <div class="code-block">
+                    <pre><code># Temel image
+FROM nginx:alpine
+
+# Çalışma dizini
+WORKDIR /usr/share/nginx/html
+
+# Dosyaları kopyala
+COPY . .
+
+# Port aç
+EXPOSE 80
+
+# Nginx başlat
+CMD ["nginx", "-g", "daemon off;"]</code></pre>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Web Programlama Dersi - Docker Deployment Demo</p>
+            <p class="status">
+                <span class="status-dot"></span>
+                Canlı Ortamda Çalışıyor
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

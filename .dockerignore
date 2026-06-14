@@ -1,31 +1,4 @@
-# Docker tarafından görmezden gelinecek dosyalar
-
-# Git
-.git
-.gitignore
-
-# IDE
-.vscode
-.idea
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-logs/
-
-# Node modules (eğer varsa)
-node_modules/
+node_modules
 npm-debug.log
-
-# Build dosyaları
-dist/
-build/
-
-# README ve diğer dokümanlar
-README.md
-*.md
+.git
+.DS_Store

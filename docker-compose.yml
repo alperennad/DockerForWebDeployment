@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    container_name: docker-web-demo
+    ports:
+      - "8080:3000"
+    environment:
+      PORT: 3000
+      DATABASE_URL: postgresql://postgres:oudgxr7gakgevfb7@infra-db-tjfuvg:5432/postgres
+    restart: unless-stopped

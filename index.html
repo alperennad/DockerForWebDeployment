@@ -108,7 +108,7 @@
                         <span>Dockerfile'dan image oluştur</span>
                     </div>
                     <div class="command-item">
-                        <code>docker run -p 80:80 myapp</code>
+                        <code>docker compose up</code>
                         <span>Konteyner başlat ve port yönlendir</span>
                     </div>
                     <div class="command-item">
@@ -126,19 +126,23 @@
                 <h2>Örnek Dockerfile</h2>
                 <div class="code-block">
                     <pre><code># Temel image
-FROM nginx:alpine
+FROM node:20-alpine
 
 # Çalışma dizini
-WORKDIR /usr/share/nginx/html
+WORKDIR /app
 
-# Dosyaları kopyala
+# Bağımlılıkları kur
+COPY package.json ./
+RUN npm install --omit=dev
+
+# Uygulamayı kopyala
 COPY . .
 
 # Port aç
-EXPOSE 80
+EXPOSE 3000
 
-# Nginx başlat
-CMD ["nginx", "-g", "daemon off;"]</code></pre>
+# Backend başlat
+CMD ["npm", "start"]</code></pre>
                 </div>
             </section>
         </main>
@@ -147,7 +151,7 @@ CMD ["nginx", "-g", "daemon off;"]</code></pre>
             <p>Web Programlama Dersi - Docker Deployment Demo</p>
             <p class="status">
                 <span class="status-dot"></span>
-                Canlı Ortamda Çalışıyor
+                <span id="backend-status">Backend kontrol ediliyor...</span>
             </p>
         </footer>
     </div>
